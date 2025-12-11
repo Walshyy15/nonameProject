@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulation Releases Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1>Simulation Releases</h1>
+      <p class="subtitle">New and upcoming PC simulation games across multiple stores.</p>
+    </div>
+    <div class="header-actions">
+      <button id="refresh-all" class="primary">Refresh All Providers</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="panel">
+        <h2>Search</h2>
+        <input type="search" id="search" placeholder="Search titles..." aria-label="Search games by title" />
+      </section>
+
+      <section class="panel">
+        <h2>Sources</h2>
+        <div id="source-filters" class="chip-list" aria-live="polite"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Tags</h2>
+        <div id="tag-filters" class="chip-list" aria-live="polite"></div>
+      </section>
+
+      <section class="panel info">
+        <h2>About</h2>
+        <p>This static prototype uses mock data and a mocked Gemini helper. Provider calls and Gemini calls can be wired to a backend or proxy later without changing the UI code.</p>
+        <p class="hint">Filters and refresh run entirely in the browser.</p>
+      </section>
+    </aside>
+
+    <section class="content">
+      <div id="status" class="status" aria-live="polite"></div>
+      <div id="game-list" class="game-list" aria-live="polite"></div>
+    </section>
+
+    <section class="detail" aria-live="polite">
+      <div id="detail-card" class="detail-card empty">
+        <p>Select a game to see details.</p>
+      </div>
+    </section>
+  </main>
+
+  <template id="game-card-template">
+    <article class="game-card">
+      <div class="card-header">
+        <div>
+          <h3 class="game-title"></h3>
+          <p class="release-date"></p>
+        </div>
+        <div class="stores"></div>
+      </div>
+      <p class="summary"></p>
+      <div class="tags"></div>
+      <div class="card-actions">
+        <button class="outline view-details">View details</button>
+      </div>
+    </article>
+  </template>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
